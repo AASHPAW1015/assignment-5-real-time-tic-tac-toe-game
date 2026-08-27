@@ -1,0 +1,7 @@
+@host = http://localhost:3000
+
+### Game UI (open this in two browser tabs to play)
+GET {{host}}/
+
+### Match history -- last 10 finished games, newest first
+GET {{host}}/api/history
