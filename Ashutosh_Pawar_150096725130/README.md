@@ -9,6 +9,16 @@ decides whose turn it is and who won. The first player to join is assigned `X`, 
 second `O`, and a third connection is rejected. When a game ends, the result is written
 to MongoDB Atlas and the client re-fetches the history table over a normal HTTP route.
 
+## Live demo
+
+https://assignment-5-real-time-tic-tac-toe-game-2hp5.onrender.com
+
+Open it in two browser tabs (or on two devices) and join under different usernames.
+The same Render service hosts both the game page and the Socket.IO server. It runs on
+Render's free tier, so the first visit after a period of inactivity can take up to a
+minute, and a game in progress resets if the server restarts. Finished games are kept
+in MongoDB.
+
 ## Tech stack
 
 - Express 5 — static file serving and the history route
@@ -52,6 +62,13 @@ second plays `O`. A third tab receives a `login-error` and cannot join.
 
 On Atlas, whitelist your IP under Network Access first, and percent-encode any special
 characters in the password before putting it in the URI.
+
+## Deployment
+
+Deployed as one Render web service: root directory `Ashutosh_Pawar_150096725130`,
+build `npm install`, start `npm start`, with `MONGO_URI` set to a MongoDB Atlas
+connection string. Render provides `PORT` and supports WebSockets, so no extra
+configuration is needed.
 
 ## Environment variables
 
